@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Prototipo de html por String</h1>
+    </header>
+
+    <section>
+        <form>
+            <fieldset>
+                <textarea name="texto" id="texto" cols="30" rows="10"></textarea>
+                <button id="botao" >Ativar</button>
+            </fieldset>
+        </form>
+    </section>
+
+    <script>
+        $("button").on('click', function (e) {
+            e.preventDefault();
+            let text = $(this).text();
+
+            if (text == 'Ativar') {
+                $(this).html('Desativar');
+            } else if (text == 'Desativar') {
+                $(this).html('Ativar');
+            }
+        });
+
+    </script>
+</body>
+
+</html>
