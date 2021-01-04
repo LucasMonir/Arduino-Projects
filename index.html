@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="Estilo.css">
+</head>
+
+<body>
+    <header id="topo">
+        <h1>Prototipo de html por String</h1>
+    </header>
+
+    <section>
+        <form>
+            <select name="opcao" id="opcao">
+                <option value="" selected> Selecione uma opção</option>
+                <option value="lancaChama">Lança chamas</option>
+                <option value="facada">Facada Bot</option>
+                <option value="alarme">Alarme</option>
+            </select>
+            <input id="op" hidden operacao="">
+            <button id="botao">Ativar</button>
+        </form>
+    </section>
+
+    <section>
+        <div>
+            <h1>Status: <span id="status">Desativado</span> </h1>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
