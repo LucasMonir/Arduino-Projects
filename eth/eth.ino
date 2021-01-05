@@ -53,7 +53,7 @@ void loop() {
           client.println("");
 
 
-          myFile = SD.open("index.txt");
+          myFile = SD.open("test.txt");
           if (myFile) {
             Serial.println("test.txt:");
 
