@@ -1,40 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0021)http://192.168.0.175/ -->
+<html lang="en"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="./Document_files/jquery-3.5.1.js.download" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            width: 100vw;
+            background-color: #44475a;
+            color: #bd93f9;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #topo {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        h1 {
+            text-align: center;
+            width: 30rem;
+            text-shadow: 4px 4px #30323f;
+        }
+
+        form button,
+        form textarea,
+        form {
+            box-shadow: 5px 5px 5px #30323f;
+        }
+
+        section {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 20rem;
+            padding: 1rem 0 1rem 0;
+        }
+
+        form button,
+        form textarea {
+            margin-top: 1rem;
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
+    <header id="topo">
         <h1>Prototipo de html por String</h1>
     </header>
 
     <section>
         <form>
-            <fieldset>
-                <textarea name="texto" id="texto" cols="30" rows="10"></textarea>
-                <button id="botao" >Ativar</button>
-            </fieldset>
+            <select name="opcao" id="opcao">
+                <option value="" selected=""> Selecione uma opção</option>
+                <option value="lancaChama">Lança chamas</option>
+                <option value="facada">Facada Bot</option>
+                <option value="alarme">Alarme</option>
+            </select>
+            <input id="op" hidden="" operacao="">
+            <button id="botao">Ativar</button>
         </form>
     </section>
 
+    <section>
+        <div>
+            <h1>Status: <span id="status">Desativado</span> </h1>
+        </div>
+    </section>
+
     <script>
+        function ativar(opcao) {
+
+            switch (opcao) {
+                case 'lancaChama':
+
+                    lancaChamas();
+                    break;
+
+                case 'facada':
+                    facada();
+                    break;
+
+                case 'alarme':
+                    alarme()
+                    break;
+                default:
+                    throw "Opção inválida, CÓD: DP";
+            }
+        }
+
         $("button").on('click', function (e) {
             e.preventDefault();
+            let opcao = $('select option:selected').val();
             let text = $(this).text();
 
             if (text == 'Ativar') {
                 $(this).html('Desativar');
+                ativar(opcao);
             } else if (text == 'Desativar') {
                 $(this).html('Ativar');
             }
         });
 
-    </script>
-</body>
+        // ler novo parametro
+        //  trocar o estado
 
-</html>
+        function lancaChamas(e) {
+            if (!document.location.href.includes('?')) {
+                window.location.replace(document.location.href + "?param=l");
+            }
+
+            e.preventDefault();
+        }
+
+        function facada(e) {
+            if (!document.location.href.includes('?')) {
+                window.location.replace(document.location.href + "?param=f");
+            }
+            e.preventDefault();
+        }
+
+        function alarme(e) {
+            if (!document.location.href.includes('?')) {
+                window.location.replace(document.location.href + "?param=a");
+            }
+            e.preventDefault();
+        }
+    </script>
+
+
+
+</body></html>
